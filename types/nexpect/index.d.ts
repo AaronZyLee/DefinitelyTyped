@@ -19,6 +19,8 @@ interface IChain {
     expect(expectation: RegExp): IChain;
     wait(expectation: string): IChain;
     wait(expectation: RegExp): IChain;
+    wait(expectation: string, callback: (err: Error, output: string[], exit: string | number) => void);
+    wait(expectation: RegExp, callback: (err: Error, output: string[], exit: string | number) => void);
     sendline(line: string): IChain;
     sendEof(): IChain;
     run(callback: (err: Error, output: string[], exit: string | number) => void): child_process.ChildProcess;
